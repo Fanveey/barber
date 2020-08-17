@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -22,6 +26,26 @@ body {
     background-image: url(../img/pattern-light.jpg);
     background-position: 0 0;
     background-repeat: repeat;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 a {
@@ -57,10 +81,17 @@ a {
 .site-navigation,
 .user-navigation {
     list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 40px;
+    align-items: center;
 } 
 
 .site-navigation a,
 .user-navigation a {
+    display: block;
+    padding: 25px 20px;
+    vertical-align: middle;
     color:#ffffff ;
 }
 
@@ -130,7 +161,11 @@ a {
 
 .breadcrumbs {
     list-style: none;
+    display: flex;
+    justify-content: space-between;
 }
+
+
 
 .breadcrumbs a {
     color: #000000;
@@ -211,6 +246,9 @@ a {
 
 .pagination-list {
     list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
 }
 
 .pagination-item a {
@@ -241,6 +279,16 @@ a {
 
 .product-photo-preview {
     list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 460px;
+    padding: 0
+}
+
+.item-info {
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .product-photo-preview li {
@@ -394,11 +442,34 @@ a {
 }
 
 .user-navigation {
-    width: 140px;
+    display: flex;
+    max-width: 140px;
     margin: 0;
-    padding: 0;
-    list-style: none;
-    min-height: 70px;
+}
+
+.user-navigation .login-link {
+    position: relative;
+    padding-left: 50px;
+}
+
+.login-link::before {
+    content: "";
+    position: absolute;
+    top: 27px;
+    left: 24px;
+    width: 16px;
+    height: 18px;
+    background-image: url("../img/login.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    
+    opacity: 0.3;
+}
+
+.login-link:hover::before,
+.login-link:focus::before,
+.login-link:active:before, {
+    opacity: 1;
 }
 
 .main-navigation-wrapper {
@@ -514,6 +585,16 @@ a {
 
 .inner-page .user-navigation {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+
+}
+
+.inner-page .site-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 40px;
+    align-items: center;
 }
 
 .page-title {
